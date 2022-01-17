@@ -1,0 +1,131 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <style>
+        html, body {
+            height: 100%;
+            width: 100%;
+        }
+
+        div {
+            height: 500px;
+            width: 500px;
+            background-color: pink;
+        }
+
+        #wynik {
+            background-color: blueviolet;
+        }
+
+        input, select {
+            height: 30px;
+            width: 200px;
+        }
+
+
+        button {
+            width: 15px;
+            height: 15px;
+        }
+
+      
+    </style>
+    <script>
+
+        function oblicz() {
+            var x = Number(document.getElementById("dorosli").value);
+            var y = Number(document.getElementById("dzieci").value);
+            var z = document.getElementById("hotel").value;
+           
+            var ld = Number(document.getElementById("dni").value);
+            var wynik;
+            if (x != "" && y != ""  && ld != "" && !isNaN(x) && !isNaN(y)  && !isNaN(ld) ) {
+
+                if (z == "hotel1") {
+
+                    wynik = (x * 20 + y * 15) * ld;
+                    document.getElementById("wynik").innerHTML = "Dokonałeś rezerwacji na " + ld + " dni dla " + x + " dorosłych i " + y + " dzieci. Koszt całkowity noclegów wynosi " + wynik;
+                }
+                if (z == "hotel2") {
+
+                    wynik = (x * 30 + y * 20) * ld;
+                    document.getElementById("wynik").innerHTML = "Dokonałeś rezerwacji na " + ld + " dni dla " + x + " dorosłych i " + y + " dzieci. Koszt całkowity noclegów wynosi " + wynik;
+                }
+            }
+            else {
+                alert("WPROWADZIŁEŚ BŁEDNE DANE")
+            }
+
+
+
+        }
+
+        
+
+
+    </script>
+    <title></title>
+</head>
+<body>
+
+
+    <div>
+        <form>
+            <table>
+                <h3>REZERWACJA</h3>
+                <tr>
+                    <td>
+                        PODAJ LICZBE OSOB DOROSLYCH
+                    </td>
+                    <td>
+                        <input type="text" id="dorosli" placeholder="wpisz liczbe doroslych" />
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        PODAJ LICZBE DZIECI
+                    </td>
+                    <td>
+                        <input type="text" id="dzieci" placeholder="wpisz liczbe dzieci" />
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        PODAJ LICZBE DNI
+                    </td>
+                    <td>
+                        <input type="text" id="dni" placeholder="wpisz liczbe dni" />
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        WYBIERZ HOTEL
+                    </td>
+                    <td>
+                        <select id="hotel">
+                            <option >WYBIERZ HOTEL</option>
+                            <option value="hotel1">hotel "u baski" dorosly = 20zl dziecko=15zl</option>
+                            <option value="hotel2">hotel "mariot" dorosly = 30zl dziecko =20zl</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                        <input type="button" onclick="oblicz()" value="oblicz cene " />
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+    <div id="wynik">
+        
+    </div>
+
+</body>
+</html>
